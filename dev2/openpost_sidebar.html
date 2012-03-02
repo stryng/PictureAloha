@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="description" content="cmsmasters website template" />
+		<meta name="keywords" content="html, css, template" />
+		<link rel="shortcut icon" href="images/favicon.png" type="image/png" />
+		<link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="css/styles/prettyPhoto.css" type="text/css" media="screen" />
+		<link id="gFontName" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Cuprum:regular,italic,bold,bolditalic" type="text/css" />
+		<!--[if lt IE 9]>
+			<link rel="stylesheet" href="css/styles/ie.css" type="text/css" />
+		<![endif]-->
+		<title>Pacifico</title>
+	</head>
+	<body class="standard simple">
+		<script type="text/javascript"> if (window.jQuery == undefined) document.write( unescape('%3Cscript src="js/jquery-1.6.4.min.js" type="text/javascript"%3E%3C/script%3E') ); </script>
+		<script src="js/jquery.prettyPhoto.js" type="text/javascript"></script>
+		<script src="js/script.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			jQuery(document).ready(function(){
+				if (jQuery.browser.msie && jQuery.browser.version < 9){
+					var $windowWidth = jQuery(window).width()+17;
+					var $windowHeight = jQuery(window).height()+17;
+				} else {
+					var $windowWidth = window.innerWidth;
+					var $windowHeight = window.innerHeight;
+				}
+				
+				var $image = jQuery('.bgImage img');
+				var img = new Image();
+				
+				img.src = jQuery($image).attr('src');
+				
+				var intervalId = setInterval(function(){
+					if (img.complete){
+						var $imgWidth = img.width;
+						var $imgHeight = img.height;
+						var $widthFactor = parseFloat($imgWidth/$windowWidth);
+						var $heightFactor = parseFloat($imgHeight/$windowHeight);
+						
+						if ($widthFactor < $heightFactor){
+							jQuery($image).css({width:$windowWidth+'px', height:parseInt($imgHeight/$widthFactor)+'px', top:'-'+parseInt((parseInt($imgHeight/$widthFactor)-$windowHeight)/2)+'px', left:0});
+						} else {
+							jQuery($image).css({width:parseInt($imgWidth/$heightFactor)+'px', height:$windowHeight+'px', top:0, left:'-'+parseInt((parseInt($imgWidth/$heightFactor)-$windowWidth)/2)+'px'});
+						}
+						
+						clearInterval(intervalId);
+						LoadImageStart();
+					}
+				}, 50);
+				
+				function LoadImageStart(){
+					$image.parent().fadeIn(500, function(){
+						jQuery(this).css({display:'block'});
+					});
+				}
+				
+				jQuery(window).resize(function(){
+					if (jQuery.browser.msie && jQuery.browser.version < 9){
+						var $windowWidth = jQuery(window).width()+17;
+						var $windowHeight = jQuery(window).height();
+					} else {
+						var $windowWidth = window.innerWidth;
+						var $windowHeight = window.innerHeight;
+					}
+					
+					var $imgWidth = img.width;
+					var $imgHeight = img.height;
+					var $widthFactor = parseFloat($imgWidth/$windowWidth);
+					var $heightFactor = parseFloat($imgHeight/$windowHeight);
+					
+					if ($widthFactor < $heightFactor){
+						jQuery($image).css({width:$windowWidth+'px', height:parseInt($imgHeight/$widthFactor)+'px', top:'-'+parseInt((parseInt($imgHeight/$widthFactor)-$windowHeight)/2)+'px', left:0});
+					} else {
+						jQuery($image).css({width:parseInt($imgWidth/$heightFactor)+'px', height:$windowHeight+'px', top:0, left:'-'+parseInt((parseInt($imgWidth/$heightFactor)-$windowWidth)/2)+'px'});
+					}
+				});
+			});
+		</script>
+		
+<!-- _________________________ Start Background Image __________________________ -->
+		<div class="bgImage">
+			<img src="images/subpage_bg.jpg" alt="" />
+		</div>
+<!-- _________________________ Finish Background Image __________________________ -->
+
+
+<!-- _________________________ Start Page ___________________________ -->
+		<div id="page">
+
+<!-- _________________________ Start Header _________________________ -->
+			<div class="header_wrap">
+				<div id="header">
+					<div class="header_inner">
+						<a class="logo" title="Pacifico" href="index.html">
+							<img alt="Pacifico" src="images/logo.png" />
+							<img class="logo_text" alt="Pacifico" src="images/logo-text.png" />
+						</a>
+						
+<!-- _________________________ Start Navigation _____________________ -->
+						<div class="navigation_wrap">
+							<ul id="navigation">
+								<li><a href="about.html">About<span>Read my bio</span></a></li>
+								<li><a href="shortcodes.html">Features<span>Tasty cakes</span></a>
+									<ul>
+										<li><a href="typography.html">Typography</a></li>
+										<li><a href="shortcodes.html">Shortcodes</a></li>
+										<li><a href="fwidth.html">Layouts</a>
+											<ul>
+												<li><a href="error.html">404 Error Page</a></li>
+												<li><a href="fwidth.html">Full Width</a></li>
+											</ul>
+										</li>
+										<li><a href="profiles.html">Social Profiles</a></li>
+									</ul>
+								</li>
+								<li><a href="gallery_motion.html">Gallery<span>Photo temple</span></a>
+									<ul>
+										<li><a href="gallery_motion.html">Motion Gallery</a></li>
+										<li><a href="gallery_static.html">Static Gallery</a></li>
+										<li><a href="gallery_pattern.html">Gallery With Pattern</a></li>
+										<li><a href="gallery_one.html">One column</a></li>
+										<li><a href="gallery_two.html">Two columns</a></li>
+										<li><a href="gallery_three.html">Three columns</a></li>
+										<li><a href="album.html">Album</a></li>
+									</ul>
+								</li>
+								<li class="current_page_item"><a href="sidebar_blogright.html">Blog<span>Cool postings</span></a>
+									<ul>
+										<li class="current_page_item"><a href="sidebar_blogright.html">With Sidebar</a>
+											<ul>
+												<li><a href="sidebar_blogright.html">Right Sidebar</a></li>
+												<li><a href="sidebar_blogleft.html">Left Sidebar</a></li>
+												<li class="current_page_item"><a href="openpost_sidebar.html">Open Post</a></li>
+											</ul>
+										</li>
+										<li><a href="fwidth_blog.html">Full Width</a>
+											<ul>
+												<li><a href="fwidth_blog.html">Full Width</a></li>
+												<li><a href="openpost.html">Open Post</a></li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+								<li><a href="contacts.html">Contacts<span>Don't be shy</span></a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="header_arrow_wrap">
+						<a href="#" class="header_arrow"><span>&nbsp;</span></a>
+					</div>
+<!-- _________________________ Finish Navigation ____________________ -->
+
+				</div>
+			</div>
+<!-- _________________________ Finish Header ________________________ -->
+
+
+<!-- _________________________ Start Middle _________________________ -->
+			<div id="middle">
+				<div id="home">
+					<h2 class="home">Pacifico Beach</h2>
+					<div class="album_nav">
+						<a href="#" class="arrow_left transp">prev</a>
+						<a href="#" class="arrow_right transp">next</a>
+					</div>
+				</div>
+				<div id="content">
+					<div class="entry">
+						<a href="openpost_sidebar.html"><img src="images/img_11.jpg" alt="" /></a>
+						<div class="cl"></div>
+						<br />
+						<div class="comment_block fl">
+							<small class="fl">September 22, 2011 &middot; &nbsp;</small>
+							<a href="#" class="transp">8 comments</a>
+						</div>
+						<div class="cl"></div>
+						<br />
+						<p>Lorem ipsum dolor sit amet, this is highlight adipiscing elit. Quisque ultricies, risus sed semper pretium, purus dui auctor dui, eu viverra nulla magna at massa. Proin eu iaculis ante. Cras ut augue ac arcu dignissimeu iaculis ante. Cras ut augue ac arcu dignissim consequat et non odio. Cras facilisis ligula vitae ipsum sollicitudin congue</p>
+						<a href="#" class="category">Photography</a>
+						<a href="#" class="category">Pacifico</a>
+						<a href="#" class="category">Beach</a>
+						<div class="cl"></div>
+						<br />
+						<div class="share_posts">
+							<a href="#" class="button btn_1"><span class="arrow_right">Share link</span></a>
+							<div class="social"></div>
+						</div>
+						<div class="cl"></div>
+						<br />
+						<div id="comments">
+							<h2 class="home">Comments</h2>
+							<ol class="commentlist">
+								<li>
+									<div class="comment-body">
+										<div class="comment_user"><img src="images/user_1.jpg" alt="" class="image_shadow" /></div>
+										<div class="com_box">
+											<h4>James Cook says</h4>
+											<p>Lorem ipsum dolor sit amet, this is highlight adipi scing elit. Quisque ultricies, risus sed semper </p>
+											<span class="transp">Posted 09-10-2011</span>
+											<span class="reply fr"><a href="#" class="transp">Reply</a></span>
+										</div>
+									</div>
+									<ul class="children">
+										<li>
+											<div class="comment-body">
+												<div class="comment_user"><img src="images/user_2.jpg" alt="" class="image_shadow" /></div>
+												<div class="com_box">
+													<h4>James Cook says</h4>
+													<p>Lorem ipsum dolor sit amet, this is</p>
+													<span class="transp">Posted 09-10-2011</span>
+													<span class="reply fr"><a href="#" class="transp">Reply</a></span>
+												</div>
+											</div>
+											<ul>
+												<li>
+													<div class="comment-body">
+														<div class="comment_user"><img src="images/user_2.jpg" alt="" class="image_shadow" /></div>
+														<div class="com_box">
+															<h4>James Cook says</h4>
+															<p>Lorem ipsum dolor sit amet, this is</p>
+															<span class="transp">Posted 09-10-2011</span>
+															<span class="reply fr"><a href="#" class="transp">Reply</a></span>
+														</div>
+													</div>
+												</li>
+												<li>
+													<div class="comment-body">
+														<div class="comment_user"><img src="images/user_2.jpg" alt="" class="image_shadow" /></div>
+														<div class="com_box">
+															<h4>James Cook says</h4>
+															<p>Lorem ipsum dolor sit amet, this is</p>
+															<span class="transp">Posted 09-10-2011</span>
+															<span class="reply fr"><a href="#" class="transp">Reply</a></span>
+														</div>
+													</div>
+												</li>
+											</ul>
+										</li>
+										<li>
+											<div class="comment-body">
+												<div class="comment_user"><img src="images/user_2.jpg" alt="" class="image_shadow" /></div>
+												<div class="com_box">
+													<h4>James Cook says</h4>
+													<p>Lorem ipsum dolor sit amet, this is</p>
+													<span class="transp">Posted 09-10-2011</span>
+													<span class="reply fr"><a href="#" class="transp">Reply</a></span>
+												</div>
+											</div>
+										</li>
+									</ul>
+								</li>
+							</ol>
+						</div>
+						<h2 class="home">Leave a Reply</h2>
+						<p>Your email address will not be published. Required fields are marked</p>
+						<form action="#" method="post" id="commentform">
+							<p>
+								<input type="text" name="author" id="author" value="" size="22" />
+								<label>Name<span> *</span></label>
+							</p>
+							<div class="cl"></div>
+							<p>
+								<input type="text" name="email" id="email" value="" size="22" />
+								<label>Email<span> *</span></label>
+							</p>
+							<div class="cl"></div>
+							<p>
+								<input type="text" name="url" id="url" value="" size="22" />
+								<label>Website</label>
+							</p>
+							<div class="cl"></div>
+							<p><textarea name="comment" id="comment" cols="28" rows="6"></textarea></p>
+							<p><a href="#" class="button btn_1">Add comment</a></p>
+						</form>
+					</div>
+				</div>
+				
+<!-- _________________________ Start Sidebar ________________________ -->
+				<div id="sidebar">
+					<div class="widget widget_search">
+						<div class="">
+							<h4 class="widgettitle">Search</h4>
+							<form action="#">
+								<p>
+									<input type="text" name="search" id="search" value="" />
+									<input type="submit" value="GO" />
+								</p>
+							</form>
+						</div>
+					</div>
+					<div class="widget widget_custom_comments_entries">
+						<div class="">
+							<h4 class="widgettitle">Recent Comment</h4>
+							<ul>
+								<li>
+									<p>Lorem ipsum dolor sit amet, this is highlight adipiscing elit. Quisque ultricies, risus sed semper pretium, purus dui auctor dui</p>
+									<strong>David James</strong> on <a href="#" class="transp">Pacifico</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="widget widget_links">
+						<div class="">
+							<h4 class="widgettitle">Links</h4>
+							<ul>
+								<li><a href="#">Cmsmasters on Themeforest</a></li>
+								<li><a href="cmsmasters.net">Cmsmasters website</a></li>
+								<li><a href="#">Cmsmasters portfolio</a></li>
+								<li><a href="support.cmsmasters.net">Cmsmasters support forums</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="widget widget_follow">
+						<div class="">
+							<h4 class="widgettitle">Follow</h4>
+							<ul>
+								<li class="flickr"><a href="#">My Flickr Fotostream</a></li>
+								<li class="facebook"><a href="#">Be my friend on Facebook</a></li>
+								<li class="tumblr"><a href="#">Visit my Tumblr page</a></li>
+								<li class="twitter"><a href="#">Follow me on Twitter</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="cl"></div>
+<!-- _________________________ Finish Sidebar _______________________ -->
+
+
+<!-- _________________________ Start Bottom _________________________ -->
+				<div id="bottom">
+					<div class="widget widget_custom_comments_entries">
+						<div class="one_third last">
+							<h4 class="widgettitle">Recent Comment</h4>
+							<ul>
+								<li>
+									<p>Lorem ipsum dolor sit amet, this is highlight adipiscing elit. Quisque ultricies, risus sed semper pretium, purus dui auctor dui</p>
+									<strong>David James</strong> on <a href="#" class="transp">Pacifico</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="widget widget_links">
+						<div class="one_third">
+							<h4 class="widgettitle">Links</h4>
+							<ul>
+								<li><a href="#">Cmsmasters on Themeforest</a></li>
+								<li><a href="cmsmasters.net">Cmsmasters website</a></li>
+								<li><a href="#">Cmsmasters portfolio</a></li>
+								<li><a href="support.cmsmasters.net">Cmsmasters support forums</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="widget widget_follow">
+						<div class="one_third">
+							<h4 class="widgettitle">Follow</h4>
+							<ul>
+								<li class="flickr"><a href="#">My Flickr Fotostream</a></li>
+								<li class="facebook"><a href="#">Be my friend on Facebook</a></li>
+								<li class="tumblr"><a href="#">Visit my Tumblr page</a></li>
+								<li class="twitter"><a href="#">Follow me on Twitter</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="cl"></div>
+				</div>
+<!-- _________________________ Finish Bottom ________________________ -->	
+				
+				
+<!-- _________________________ Start Footer _________________________ -->
+				<div id="footer">
+					<p>Pacifico &copy; 2011 by cmsmasters</p>
+				</div>
+<!-- _________________________ Finish Footer ________________________ -->
+
+			</div>
+<!-- _________________________ Finish Middle ________________________ -->
+
+			<div class="cl"></div>
+		</div>
+<!-- _________________________ Finish Page __________________________ -->
+
+	</body>
+</html>

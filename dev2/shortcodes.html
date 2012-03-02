@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="description" content="cmsmasters website template" />
+		<meta name="keywords" content="html, css, template" />
+		<link rel="shortcut icon" href="images/favicon.png" type="image/png" />
+		<link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="css/styles/prettyPhoto.css" type="text/css" media="screen" />
+		<link id="gFontName" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Cuprum:regular,italic,bold,bolditalic" type="text/css" />
+		<!--[if lt IE 9]>
+			<link rel="stylesheet" href="css/styles/ie.css" type="text/css" />
+		<![endif]-->
+		<title>Pacifico</title>
+	</head>
+	<body class="standard simple">
+		<script type="text/javascript"> if (window.jQuery == undefined) document.write( unescape('%3Cscript src="js/jquery-1.6.4.min.js" type="text/javascript"%3E%3C/script%3E') ); </script>
+		<script src="js/jquery.prettyPhoto.js" type="text/javascript"></script>
+		<script src="js/script.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			jQuery(document).ready(function(){
+				if (jQuery.browser.msie && jQuery.browser.version < 9){
+					var $windowWidth = jQuery(window).width()+17;
+					var $windowHeight = jQuery(window).height()+17;
+				} else {
+					var $windowWidth = window.innerWidth;
+					var $windowHeight = window.innerHeight;
+				}
+				
+				var $image = jQuery('.bgImage img');
+				var img = new Image();
+				
+				img.src = jQuery($image).attr('src');
+				
+				var intervalId = setInterval(function(){
+					if (img.complete){
+						var $imgWidth = img.width;
+						var $imgHeight = img.height;
+						var $widthFactor = parseFloat($imgWidth/$windowWidth);
+						var $heightFactor = parseFloat($imgHeight/$windowHeight);
+						
+						if ($widthFactor < $heightFactor){
+							jQuery($image).css({width:$windowWidth+'px', height:parseInt($imgHeight/$widthFactor)+'px', top:'-'+parseInt((parseInt($imgHeight/$widthFactor)-$windowHeight)/2)+'px', left:0});
+						} else {
+							jQuery($image).css({width:parseInt($imgWidth/$heightFactor)+'px', height:$windowHeight+'px', top:0, left:'-'+parseInt((parseInt($imgWidth/$heightFactor)-$windowWidth)/2)+'px'});
+						}
+						
+						clearInterval(intervalId);
+						LoadImageStart();
+					}
+				}, 50);
+				
+				function LoadImageStart(){
+					$image.parent().fadeIn(500, function(){
+						jQuery(this).css({display:'block'});
+					});
+				}
+				
+				jQuery(window).resize(function(){
+					if (jQuery.browser.msie && jQuery.browser.version < 9){
+						var $windowWidth = jQuery(window).width()+17;
+						var $windowHeight = jQuery(window).height();
+					} else {
+						var $windowWidth = window.innerWidth;
+						var $windowHeight = window.innerHeight;
+					}
+					
+					var $imgWidth = img.width;
+					var $imgHeight = img.height;
+					var $widthFactor = parseFloat($imgWidth/$windowWidth);
+					var $heightFactor = parseFloat($imgHeight/$windowHeight);
+					
+					if ($widthFactor < $heightFactor){
+						jQuery($image).css({width:$windowWidth+'px', height:parseInt($imgHeight/$widthFactor)+'px', top:'-'+parseInt((parseInt($imgHeight/$widthFactor)-$windowHeight)/2)+'px', left:0});
+					} else {
+						jQuery($image).css({width:parseInt($imgWidth/$heightFactor)+'px', height:$windowHeight+'px', top:0, left:'-'+parseInt((parseInt($imgWidth/$heightFactor)-$windowWidth)/2)+'px'});
+					}
+				});
+			});
+		</script>
+		
+<!-- _________________________ Start Background Image __________________________ -->
+		<div class="bgImage">
+			<img src="images/subpage_bg.jpg" alt="" />
+		</div>
+<!-- _________________________ Finish Background Image __________________________ -->
+
+
+<!-- _________________________ Start Page ___________________________ -->
+		<div id="page">
+
+<!-- _________________________ Start Header _________________________ -->
+			<div class="header_wrap">
+				<div id="header">
+					<div class="header_inner">
+						<a class="logo" title="Pacifico" href="index.html">
+							<img alt="Pacifico" src="images/logo.png" />
+							<img class="logo_text" alt="Pacifico" src="images/logo-text.png" />
+						</a>
+						
+<!-- _________________________ Start Navigation _____________________ -->
+						<div class="navigation_wrap">
+							<ul id="navigation">
+								<li><a href="about.html">About<span>Read my bio</span></a></li>
+								<li class="current_page_item"><a href="shortcodes.html">Features<span>Tasty cakes</span></a>
+									<ul>
+										<li><a href="typography.html">Typography</a></li>
+										<li class="current_page_item"><a href="shortcodes.html">Shortcodes</a></li>
+										<li><a href="fwidth.html">Layouts</a>
+											<ul>
+												<li><a href="error.html">404 Error Page</a></li>
+												<li><a href="fwidth.html">Full Width</a></li>
+											</ul>
+										</li>
+										<li><a href="profiles.html">Social Profiles</a></li>
+									</ul>
+								</li>
+								<li><a href="gallery_motion.html">Gallery<span>Photo temple</span></a>
+									<ul>
+										<li><a href="gallery_motion.html">Motion Gallery</a></li>
+										<li><a href="gallery_static.html">Static Gallery</a></li>
+										<li><a href="gallery_pattern.html">Gallery With Pattern</a></li>
+										<li><a href="gallery_one.html">One column</a></li>
+										<li><a href="gallery_two.html">Two columns</a></li>
+										<li><a href="gallery_three.html">Three columns</a></li>
+										<li><a href="album.html">Album</a></li>
+									</ul>
+								</li>
+								<li><a href="sidebar_blogright.html">Blog<span>Cool postings</span></a>
+									<ul>
+										<li><a href="sidebar_blogright.html">With Sidebar</a>
+											<ul>
+												<li><a href="sidebar_blogright.html">Right Sidebar</a></li>
+												<li><a href="sidebar_blogleft.html">Left Sidebar</a></li>
+												<li><a href="openpost_sidebar.html">Open Post</a></li>
+											</ul>
+										</li>
+										<li><a href="fwidth_blog.html">Full Width</a>
+											<ul>
+												<li><a href="fwidth_blog.html">Full Width</a></li>
+												<li><a href="openpost.html">Open Post</a></li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+								<li><a href="contacts.html">Contacts<span>Don't be shy</span></a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="header_arrow_wrap">
+						<a href="#" class="header_arrow"><span>&nbsp;</span></a>
+					</div>
+<!-- _________________________ Finish Navigation ____________________ -->
+
+				</div>
+			</div>
+<!-- _________________________ Finish Header ________________________ -->
+
+
+<!-- _________________________ Start Middle _________________________ -->
+			<div id="middle">
+				<div id="home">
+					<h2 class="home">Shortcodes</h2>
+				</div>
+				<div class="middle_content">
+					<div class="entry">
+						<h3>Lettercaps &amp; Blockquotes</h3>
+						<p><span class="dropcap">L</span>orem ipsum dolor sit amet, this is highlight adipiscing elit. Quisque ultricies, risus sed semper pretium, purus dui auctor dui, eu viverra nulla magna at massa. Proin eu iaculis ante. Cras ut augue orem ipsum dolor sit amet, this is Cras facilisis ligula vitae ipsum sollicitudin congue. Donec volutpat consectetur rutrum. Aliquam this is highligh. Cras ut augue ac arcu dignissim consequat et non odio. Cras facilisis ligula vitae ipsum sollicitudin</p>
+						<p><span class="dropcap2">L</span>orem ipsum dolor sit amet, this is highlight adipiscing elit. Quisque ultricies, risus sed semper pretium, purus dui auctor dui, eu viverra nulla magna at massa. Proin eu iaculis ante. Cras ut augue auctor dui, eu viverra nulla magna Cras facilisis ligula vitae ipsum sollicitudin congue. Donec volutpat consectetur rutrum. Aliquam this is highligh. Cras ut augue ac arcu dignissim consequat et non odio. Cras facilisis ligula vitae ipsum sollicitudin congue. </p>
+						<div class="cl"></div>
+						<br />
+						<div class="blockquote">
+							<div class="quotation">&ldquo;</div>
+							<p>Cras facilisis ligula vitae ipsum sollicitudin congue. Donec volutpat consectetur rutrum. Aliquam this is highligh. Cras ut augue ac arcu dignissim consequat et non odio. Cras facilisis ligula vitae ipsum sollicitu din congue. Donec volutpat consectetur rutrum. Aliquam this is highligras facilisis ligula vitae ipsum sollicitudin congue. Donec volutpat consectetur rutrum. Aliquam this is highligh. </p>
+							<div class="quotation right">&rdquo;</div>
+						</div>
+						<div class="cl"></div>
+						<br />
+						<div class="one_half">
+							<div class="blockquote">
+								<div class="quotation">&ldquo;</div>
+								<p>Cras facilisis ligula vitae ipsum sollicitu din congue. Donec volutpat consectetur rutrum. Aliquam this is highligh. Cras ut augue ac arcu dignissim</p>
+								<div class="quotation right">&rdquo;</div>
+							</div>
+						</div>
+						<div class="one_half last">
+							<p>Dignissim consequat et non odio. Cras facilisis ligula vitae ipsum sollicitudin congue. Donec volutpat consectetur rutrum. Aliquam this is highligh Lorem ipsum dolor sit amet</p>
+							<p>Lorem ipsum dolor sit amet, this is highlight adipiscing elit. Quisque ultricies, risus sed semper pretium, purus dui auctor dui, eu viverra nulla magna at massa.</p>
+						</div>
+						<div class="cl"></div>
+						<br />
+						<h3>Buttons</h3>
+						<br />
+						<a href="#" class="button btn_1">Click Here</a>
+						<a href="#" class="button btn_2">Click Here</a>
+						<a href="#" class="button btn_3">Click Here</a>
+						<a href="#" class="button btn_4">Click Here</a>
+						<a href="#" class="button btn_5">Click Here</a>
+						<a href="#" class="button btn_6">Click Here</a>
+						<a href="#" class="button btn_7">Click Here</a>
+						<div class="cl"></div>
+						<br />
+						<br />
+						<h3>Infoboxes</h3>
+						<br />
+						<div class="one_half">
+							<table class="box text_box">
+								<tr>
+									<td>&nbsp;</td>
+									<td>Fantastic Idea!</td>
+								</tr>
+							</table>
+						</div>
+						<div class="one_half last">
+							<table class="box warning_box">
+								<tr>
+									<td>&nbsp;</td>
+									<td>Warning!</td>
+								</tr>
+							</table>
+						</div>
+						<div class="cl"></div>
+						<div class="one_half">
+							<table class="box info_box">
+								<tr>
+									<td>&nbsp;</td>
+									<td>Fantastic Idea!</td>
+								</tr>
+							</table>
+						</div>
+						<div class="one_half last">
+							<table class="box custom_box">
+								<tr>
+									<td>&nbsp;</td>
+									<td>Warning!</td>
+								</tr>
+							</table>
+						</div>
+						<div class="cl"></div>
+						<div class="one_half">
+							<table class="box error_box">
+								<tr>
+									<td>&nbsp;</td>
+									<td>Fantastic Idea!</td>
+								</tr>
+							</table>
+						</div>
+						<div class="one_half last">
+							<table class="box download_box">
+								<tr>
+									<td>&nbsp;</td>
+									<td>Warning!</td>
+								</tr>
+							</table>
+						</div>
+						<div class="cl"></div>
+						<br />
+						<h3>Tooltips</h3>
+						<br />
+						<div class="one_third">
+							<a href="#" class="link_tooltip transp" title="Standard Tooltip Text" >Standard tooltip</a>
+						</div>
+						<div class="one_third">
+							<a href="#" class="link_tooltip button btn_3" title="Standard Button Tooltip" >Click Here</a>
+						</div>
+						<div class="one_third last">
+							<a href="#" class="link_tooltip" title="Standard Image Tooltip" ><img src="images/flag.png" alt="" /></a>
+						</div>
+						<div class="cl"></div>
+						<br />
+						<h3>Toggles</h3>
+						<div class="togg">
+							<a href="#" class="tog"><span>Valid HTML</span></a>
+							<div class="tab_content" style="display:none;">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor</div>
+						</div>
+						<div class="togg">
+							<a href="#" class="tog"><span>Super Features</span></a>
+							<div class="tab_content" style="display:none;">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor</div>
+						</div>
+						<br />
+						<h3>Accordion</h3>
+						<div class="accordion">
+							<div class="acc">
+								<a href="#" class="tog"><span>Lorem ipsum</span></a>
+								<div class="tab_content" style="display:none;">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor</div>
+							</div>
+							<div class="acc">
+								<a href="#" class="tog"><span>Ipsum dolor</span></a>
+								<div class="tab_content" style="display:none;">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor</div>
+							</div>
+							<div class="acc">
+								<a href="#" class="tog"><span>Sortable Portfolio &amp; Galleries</span></a>
+								<div class="tab_content" style="display:none;">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor</div>
+							</div>
+						</div>
+						<br />
+						<h3>Tabs</h3>
+						<div class="tab">
+							<ul class="tabs">
+								<li><a href="#"><span>First Tab</span></a></li>
+								<li><a href="#"><span>Second Tab</span></a></li>
+								<li><a href="#"><span>Third Tab</span></a></li>
+							</ul>
+							<div class="tab_content">
+								<div class="tabs_tab">
+									<p>Cras facilisis ligula vitae ipsum sollicitudin congue. Donec volutpat consectetur rutrum. Aliquam this is highligh. Cras ut augue ac arcu dignissim consequat et non odio. Cras facilisis ligula vitae ipsum sollicitu din congue. Donec volutpat consectetur rutrum. Aliquam this is highligras facilisis ligula vitae ipsum sollicitudin congue. Donec volutpat consectetur rutrum. Aliquam this is highligh.</p>
+								</div>
+								<div class="tabs_tab">
+									<p>Lorem ipsum dolor sit amet, consectetuer adipi scing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra</p>
+								</div>
+								<div class="tabs_tab">Lorem ipsum dolor sit amet, consec tetuer adipiscing elit. Praesent vestibu lum mo lestie lacus. Aenean nonummy hendrerit mauris. Phasellus porta. Fusce suscipit varius um sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla dui. Fusce. Morbi nunc odio, gravida at, cursus nec, luctus a, lorem. Maecenas tristique orci ac sem. Duis ultricies pharetra magna. Donec accumsan malesuada orci.</div>
+							</div>
+						</div>
+						<div class="cl"></div>
+					</div>
+				</div>
+				
+<!-- _________________________ Start Bottom _________________________ -->
+				<div id="bottom">
+					<div class="widget widget_follow">
+						<div class="one_third">
+							<h4 class="widgettitle">Follow</h4>
+							<ul>
+								<li class="flickr"><a href="#">My Flickr Fotostream</a></li>
+								<li class="facebook"><a href="#">Be my friend on Facebook</a></li>
+								<li class="tumblr"><a href="#">Visit my Tumblr page</a></li>
+								<li class="twitter"><a href="#">Follow me on Twitter</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="widget widget_links">
+						<div class="one_third">
+							<h4 class="widgettitle">Links</h4>
+							<ul>
+								<li><a href="#">Cmsmasters on Themeforest</a></li>
+								<li><a href="cmsmasters.net">Cmsmasters website</a></li>
+								<li><a href="#">Cmsmasters portfolio</a></li>
+								<li><a href="support.cmsmasters.net">Cmsmasters support forums</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="widget widget_custom_comments_entries">
+						<div class="one_third last">
+							<h4 class="widgettitle">Recent Comment</h4>
+							<ul>
+								<li>
+									<p>Lorem ipsum dolor sit amet, this is highlight adipiscing elit. Quisque ultricies, risus sed semper pretium, purus dui auctor dui</p>
+									<strong>David James</strong> on <a href="#" class="transp">Pacifico</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="cl"></div>
+				</div>
+<!-- _________________________ Finish Bottom ________________________ -->	
+				
+				
+<!-- _________________________ Start Footer _________________________ -->
+				<div id="footer">
+					<p>Pacifico &copy; 2011 by cmsmasters</p>
+				</div>
+<!-- _________________________ Finish Footer ________________________ -->
+
+			</div>
+<!-- _________________________ Finish Middle ________________________ -->
+
+			<div class="cl"></div>
+		</div>
+<!-- _________________________ Finish Page __________________________ -->
+
+	</body>
+</html>
